@@ -8,14 +8,15 @@
           "height": 440
         },
         "position": {
-          "x": -300,
-          "y": 150
+          "x": -310,
+          "y": 180
         },
         "z": 0,
         "embeds": [
           "325e918d-8537-4bbc-9f41-ab05ac329976",
           "91485a7f-3260-4542-810f-fb7e4fbbd4df",
-          "ca139033-3ad4-4030-ae09-cf36ade1ed48"
+          "ca139033-3ad4-4030-ae09-cf36ade1ed48",
+          "e08f67ab-8264-4e16-b6e1-2b0ace97e9d0"
         ]
       },
       "91485a7f-3260-4542-810f-fb7e4fbbd4df": {
@@ -24,8 +25,8 @@
           "height": 170
         },
         "position": {
-          "x": -60,
-          "y": 260
+          "x": -70,
+          "y": 290
         },
         "z": 1,
         "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
@@ -40,8 +41,8 @@
           "height": 60
         },
         "position": {
-          "x": -20,
-          "y": 340
+          "x": -30,
+          "y": 370
         },
         "z": 2,
         "parent": "91485a7f-3260-4542-810f-fb7e4fbbd4df",
@@ -59,8 +60,8 @@
           "height": 60
         },
         "position": {
-          "x": 100,
-          "y": 280
+          "x": 90,
+          "y": 310
         },
         "z": 2,
         "parent": "91485a7f-3260-4542-810f-fb7e4fbbd4df",
@@ -78,8 +79,8 @@
           "height": 60
         },
         "position": {
-          "x": 286,
-          "y": 313
+          "x": 230,
+          "y": 470
         },
         "z": 1,
         "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
@@ -112,8 +113,8 @@
           "height": 140
         },
         "position": {
-          "x": -234,
-          "y": 193
+          "x": -244,
+          "y": 223
         },
         "z": 1,
         "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
@@ -127,8 +128,8 @@
           "height": 60
         },
         "position": {
-          "x": -194,
-          "y": 253
+          "x": -204,
+          "y": 283
         },
         "z": 2,
         "parent": "ca139033-3ad4-4030-ae09-cf36ade1ed48",
@@ -184,6 +185,18 @@
           "id": "b747042e-be54-41b6-98f7-77dbcfe9f54d"
         },
         "z": 3
+      },
+      "e08f67ab-8264-4e16-b6e1-2b0ace97e9d0": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 230,
+          "y": 310
+        },
+        "z": 1,
+        "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a"
       }
     }
   },
@@ -250,15 +263,9 @@
           {
             "AssociatePublicIpAddress": "True",
             "DeleteOnTermination": "True",
-            "SubnetId": {
-              "Ref": "SubnetWPHinternetFacing01"
-            },
+            "SubnetId": { "Ref": "SubnetWPHinternetFacing01" },
             "DeviceIndex": "0",
-            "GroupSet": [
-              {
-                "Ref": "SecurityGroupAllowRDPinbound"
-              }
-            ]
+            "GroupSet": [ { "Ref": "SecurityGroupAllowRDPinbound" } ]
           }
         ]
       },
@@ -297,9 +304,15 @@
         "KeyName": {
           "Ref": "KeyName"
         },
-        "SubnetId": {
-          "Ref": "SubnetWPHinternetFacing01"
-        }
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": "True",
+            "DeleteOnTermination": "True",
+            "SubnetId": { "Ref": "SubnetWPHinternetFacing01" },
+            "DeviceIndex": "0",
+            "GroupSet": [ { "Ref": "SecurityGroupAllowSSHinbound" } ]
+          }
+        ]
       },
       "Metadata": {
         "AWS::CloudFormation::Designer": {
@@ -392,7 +405,7 @@
             "FromPort": "3389",
             "ToPort": "3389",
             "CidrIp": {
-              "Ref": "SSHLocation"
+              "Ref": "RDPLocation"
             }
           }
         ]
@@ -400,6 +413,30 @@
       "Metadata": {
         "AWS::CloudFormation::Designer": {
           "id": "325e918d-8537-4bbc-9f41-ab05ac329976"
+        }
+      }
+    },
+    "SecurityGroupAllowSSHinbound": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPCWindowsPowersHell01"
+        },
+        "GroupDescription": "Allow access from SSH traffic",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "3389",
+            "ToPort": "3389",
+            "CidrIp": {
+              "Ref": "RDPLocation"
+            }
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "e08f67ab-8264-4e16-b6e1-2b0ace97e9d0"
         }
       }
     }
@@ -419,8 +456,8 @@
       "Type": "AWS::EC2::KeyPair::KeyName",
       "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
     },
-    "SSHLocation": {
-      "Description": " The IP address range that can be usedto access the web server using SSH.",
+    "RDPLocation": {
+      "Description": " The IP address range that can be usedto access the Windows server using RDP.",
       "Type": "String",
       "MinLength": "9",
       "MaxLength": "18",
