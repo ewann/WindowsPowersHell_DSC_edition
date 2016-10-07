@@ -1,0 +1,438 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "AWS::CloudFormation::Designer": {
+      "2522e5f5-149f-45bb-aedc-8a6d3a3e323a": {
+        "size": {
+          "width": 800,
+          "height": 440
+        },
+        "position": {
+          "x": 94,
+          "y": 147
+        },
+        "z": 0,
+        "embeds": [
+          "325e918d-8537-4bbc-9f41-ab05ac329976",
+          "91485a7f-3260-4542-810f-fb7e4fbbd4df",
+          "ca139033-3ad4-4030-ae09-cf36ade1ed48"
+        ]
+      },
+      "91485a7f-3260-4542-810f-fb7e4fbbd4df": {
+        "size": {
+          "width": 260,
+          "height": 170
+        },
+        "position": {
+          "x": 320,
+          "y": 250
+        },
+        "z": 1,
+        "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
+        "embeds": [
+          "cf0a3d42-c3e2-42d9-9ff5-a31484ee8729",
+          "7c4caf54-dd7c-41ae-b21f-404700fd48c8"
+        ]
+      },
+      "7c4caf54-dd7c-41ae-b21f-404700fd48c8": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 360,
+          "y": 330
+        },
+        "z": 2,
+        "parent": "91485a7f-3260-4542-810f-fb7e4fbbd4df",
+        "embeds": [],
+        "dependson": [
+          "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
+        ],
+        "isrelatedto": [
+          "325e918d-8537-4bbc-9f41-ab05ac329976"
+        ]
+      },
+      "cf0a3d42-c3e2-42d9-9ff5-a31484ee8729": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 480,
+          "y": 270
+        },
+        "z": 2,
+        "parent": "91485a7f-3260-4542-810f-fb7e4fbbd4df",
+        "embeds": [],
+        "dependson": [
+          "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
+        ],
+        "isrelatedto": [
+          "325e918d-8537-4bbc-9f41-ab05ac329976"
+        ]
+      },
+      "325e918d-8537-4bbc-9f41-ab05ac329976": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 680,
+          "y": 310
+        },
+        "z": 1,
+        "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
+        "embeds": []
+      },
+      "79e9c1e2-401c-495f-b38c-68e2cf855d14": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 340,
+          "y": 60
+        },
+        "z": 0,
+        "embeds": []
+      },
+      "ffb80fd2-10d5-4b64-b9bd-110348ba922d": {
+        "source": {
+          "id": "79e9c1e2-401c-495f-b38c-68e2cf855d14"
+        },
+        "target": {
+          "id": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a"
+        },
+        "z": 0
+      },
+      "ca139033-3ad4-4030-ae09-cf36ade1ed48": {
+        "size": {
+          "width": 140,
+          "height": 140
+        },
+        "position": {
+          "x": 160,
+          "y": 190
+        },
+        "z": 1,
+        "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
+        "embeds": [
+          "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
+        ]
+      },
+      "d960858e-9388-41f5-aac2-bd4ede8fb5fd": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 200,
+          "y": 250
+        },
+        "z": 2,
+        "parent": "ca139033-3ad4-4030-ae09-cf36ade1ed48",
+        "embeds": [],
+        "dependson": [
+          "79e9c1e2-401c-495f-b38c-68e2cf855d14"
+        ]
+      },
+      "bae10d56-7618-4bd7-bfa2-9003d2a90b6e": {
+        "source": {
+          "id": "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
+        },
+        "target": {
+          "id": "79e9c1e2-401c-495f-b38c-68e2cf855d14"
+        },
+        "z": 4
+      },
+      "f566d9ff-1895-4458-86ca-9b46bddd625d": {
+        "source": {
+          "id": "ca139033-3ad4-4030-ae09-cf36ade1ed48"
+        },
+        "target": {
+          "id": "91485a7f-3260-4542-810f-fb7e4fbbd4df"
+        },
+        "z": 1
+      },
+      "812a8705-7c74-454c-a590-7e3602f26586": {
+        "source": {
+          "id": "7c4caf54-dd7c-41ae-b21f-404700fd48c8"
+        },
+        "target": {
+          "id": "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
+        },
+        "z": 3
+      },
+      "33f83bf7-179a-4841-9579-ea4e8577fbf9": {
+        "source": {
+          "id": "cf0a3d42-c3e2-42d9-9ff5-a31484ee8729"
+        },
+        "target": {
+          "id": "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
+        },
+        "z": 4
+      }
+    }
+  },
+  "Resources": {
+    "EC2VPCG3I1JK": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "InternetGatewayId": {
+          "Ref": "InternetGatewayWindowsPowersHell01"
+        },
+        "VpcId": {
+          "Ref": "VPCWindowsPowersHell01"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "ffb80fd2-10d5-4b64-b9bd-110348ba922d"
+        }
+      }
+    },
+    "EC2SRTA1XFO6": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "RouteTableWindowsPowersHellVPC01"
+        },
+        "SubnetId": {
+          "Ref": "SubnetWPHinternetFacing01"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "f566d9ff-1895-4458-86ca-9b46bddd625d"
+        }
+      }
+    },
+    "InstanceWindows01": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": {
+          "Ref": "InstanceType"
+        },
+        "ImageId": {
+          "Fn::FindInMap": [
+            "AWSRegionArch2AMI",
+            {
+              "Ref": "AWS::Region"
+            },
+            {
+              "Fn::FindInMap": [
+                "AWSInstanceType2Arch",
+                {
+                  "Ref": "InstanceType"
+                },
+                "Arch"
+              ]
+            }
+          ]
+        },
+        "KeyName": {
+          "Ref": "KeyName"
+        },
+        "SubnetId": {
+          "Ref": "SubnetWPHinternetFacing01"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "7c4caf54-dd7c-41ae-b21f-404700fd48c8"
+        }
+      },
+      "DependsOn": [
+        "PublicRouteSubnetWPHinternetFacing01"
+      ]
+    },
+    "InstanceLinux01": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": {
+          "Ref": "InstanceType"
+        },
+        "ImageId": {
+          "Fn::FindInMap": [
+            "AWSRegionArch2AMI",
+            {
+              "Ref": "AWS::Region"
+            },
+            {
+              "Fn::FindInMap": [
+                "AWSInstanceType2Arch",
+                {
+                  "Ref": "InstanceType"
+                },
+                "Arch"
+              ]
+            }
+          ]
+        },
+        "KeyName": {
+          "Ref": "KeyName"
+        },
+        "SubnetId": {
+          "Ref": "SubnetWPHinternetFacing01"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "cf0a3d42-c3e2-42d9-9ff5-a31484ee8729"
+        }
+      },
+      "DependsOn": [
+        "PublicRouteSubnetWPHinternetFacing01"
+      ]
+    },
+    "InternetGatewayWindowsPowersHell01": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {},
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "79e9c1e2-401c-495f-b38c-68e2cf855d14"
+        }
+      }
+    },
+    "RouteTableWindowsPowersHellVPC01": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPCWindowsPowersHell01"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "ca139033-3ad4-4030-ae09-cf36ade1ed48"
+        }
+      }
+    },
+    "VPCWindowsPowersHell01": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "EnableDnsSupport": "true",
+        "EnableDnsHostnames": "true",
+        "CidrBlock": "10.0.0.0/16"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a"
+        }
+      }
+    },
+    "SubnetWPHinternetFacing01": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPCWindowsPowersHell01"
+        },
+        "CidrBlock": "10.0.0.0/24"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "91485a7f-3260-4542-810f-fb7e4fbbd4df"
+        }
+      }
+    },
+    "PublicRouteSubnetWPHinternetFacing01": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "InternetGatewayWindowsPowersHell01"
+        },
+        "RouteTableId": {
+          "Ref": "RouteTableWindowsPowersHellVPC01"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
+        }
+      },
+      "DependsOn": [
+        "InternetGatewayWindowsPowersHell01"
+      ]
+    },
+    "SecurityGroupAllowRDPinbound": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPCWindowsPowersHell01"
+        },
+        "GroupDescription": "Allow access from RDP traffic",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "3389",
+            "ToPort": "3389",
+            "CidrIp": {
+              "Ref": "SSHLocation"
+            }
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "325e918d-8537-4bbc-9f41-ab05ac329976"
+        }
+      }
+    }
+  },
+  "Parameters": {
+    "InstanceType": {
+      "Type": "String",
+      "Default": "t2.micro",
+      "AllowedValues": [
+        "t2.micro",
+        "m1.small"
+      ],
+      "Description": "Enter t1.micro, or m1.small. Default is t1.micro."
+    },
+    "KeyName": {
+      "Description": "Name of an EC2 KeyPair to enable SSH access to the instance.",
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+    },
+    "SSHLocation": {
+      "Description": " The IP address range that can be usedto access the web server using SSH.",
+      "Type": "String",
+      "MinLength": "9",
+      "MaxLength": "18",
+      "Default": "0.0.0.0/0",
+      "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+      "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+    }
+  },
+  "Mappings": {
+    "AWSInstanceType2Arch": {
+      "t1.micro": {
+        "Arch": "PV64"
+      },
+      "t2.micro": {
+        "Arch": "HVM64"
+      },
+      "t2.medium": {
+        "Arch": "HVM64"
+      }
+    },
+    "AWSRegionArch2AMI": {
+      "us-east-1": {
+        "PV64": "ami-1ccae774",
+        "HVM64": "ami-1ecae776",
+        "HVMG2": "ami-8c6b40e4"
+      },
+      "us-west-2": {
+        "PV64": "ami-ff527ecf",
+        "HVM64": "ami-e7527ed7",
+        "HVMG2": "ami-abbe919b"
+      },
+      "us-west-1": {
+        "PV64": "ami-d514f291",
+        "HVM64": "ami-d114f295",
+        "HVMG2": "ami-f31ffeb7"
+      }
+    }
+  }
+}
