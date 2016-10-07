@@ -8,8 +8,8 @@
           "height": 440
         },
         "position": {
-          "x": 94,
-          "y": 147
+          "x": -300,
+          "y": 150
         },
         "z": 0,
         "embeds": [
@@ -24,8 +24,8 @@
           "height": 170
         },
         "position": {
-          "x": 320,
-          "y": 250
+          "x": -60,
+          "y": 260
         },
         "z": 1,
         "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
@@ -40,8 +40,8 @@
           "height": 60
         },
         "position": {
-          "x": 360,
-          "y": 330
+          "x": -20,
+          "y": 340
         },
         "z": 2,
         "parent": "91485a7f-3260-4542-810f-fb7e4fbbd4df",
@@ -59,8 +59,8 @@
           "height": 60
         },
         "position": {
-          "x": 480,
-          "y": 270
+          "x": 100,
+          "y": 280
         },
         "z": 2,
         "parent": "91485a7f-3260-4542-810f-fb7e4fbbd4df",
@@ -78,8 +78,8 @@
           "height": 60
         },
         "position": {
-          "x": 680,
-          "y": 310
+          "x": 286,
+          "y": 313
         },
         "z": 1,
         "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
@@ -112,8 +112,8 @@
           "height": 140
         },
         "position": {
-          "x": 160,
-          "y": 190
+          "x": -234,
+          "y": 193
         },
         "z": 1,
         "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
@@ -127,12 +127,15 @@
           "height": 60
         },
         "position": {
-          "x": 200,
-          "y": 250
+          "x": -194,
+          "y": 253
         },
         "z": 2,
         "parent": "ca139033-3ad4-4030-ae09-cf36ade1ed48",
         "embeds": [],
+        "references": [
+          "79e9c1e2-401c-495f-b38c-68e2cf855d14"
+        ],
         "dependson": [
           "79e9c1e2-401c-495f-b38c-68e2cf855d14"
         ]
@@ -172,6 +175,15 @@
           "id": "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
         },
         "z": 4
+      },
+      "501c04d9-a4e8-4222-902b-03bd721410f6": {
+        "source": {
+          "id": "7c4caf54-dd7c-41ae-b21f-404700fd48c8"
+        },
+        "target": {
+          "id": "b747042e-be54-41b6-98f7-77dbcfe9f54d"
+        },
+        "z": 3
       }
     }
   },
@@ -216,7 +228,7 @@
         },
         "ImageId": {
           "Fn::FindInMap": [
-            "AWSRegionArch2AMI",
+            "AWSRegionArch2AMIwindows",
             {
               "Ref": "AWS::Region"
             },
@@ -234,9 +246,21 @@
         "KeyName": {
           "Ref": "KeyName"
         },
-        "SubnetId": {
-          "Ref": "SubnetWPHinternetFacing01"
-        }
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": "True",
+            "DeleteOnTermination": "True",
+            "SubnetId": {
+              "Ref": "SubnetWPHinternetFacing01"
+            },
+            "DeviceIndex": "0",
+            "GroupSet": [
+              {
+                "Ref": "SecurityGroupAllowRDPinbound"
+              }
+            ]
+          }
+        ]
       },
       "Metadata": {
         "AWS::CloudFormation::Designer": {
@@ -388,7 +412,7 @@
         "t2.micro",
         "m1.small"
       ],
-      "Description": "Enter t1.micro, or m1.small. Default is t1.micro."
+      "Description": "Enter t2.micro, or m1.small. Default is t2.micro."
     },
     "KeyName": {
       "Description": "Name of an EC2 KeyPair to enable SSH access to the instance.",
@@ -419,19 +443,30 @@
     },
     "AWSRegionArch2AMI": {
       "us-east-1": {
-        "PV64": "ami-1ccae774",
-        "HVM64": "ami-1ecae776",
-        "HVMG2": "ami-8c6b40e4"
+        "PV64": "ami-a9a8e4c9",
+        "HVM64": "ami-a9a8e4c9"
       },
       "us-west-2": {
-        "PV64": "ami-ff527ecf",
-        "HVM64": "ami-e7527ed7",
-        "HVMG2": "ami-abbe919b"
+        "PV64": "ami-a9a8e4c9",
+        "HVM64": "ami-a9a8e4c9"
       },
       "us-west-1": {
-        "PV64": "ami-d514f291",
-        "HVM64": "ami-d114f295",
-        "HVMG2": "ami-f31ffeb7"
+        "PV64": "ami-a9a8e4c9",
+        "HVM64": "ami-a9a8e4c9"
+      }
+    },
+    "AWSRegionArch2AMIwindows": {
+      "us-east-1": {
+        "PV64": "ami-c06b24a0",
+        "HVM64": "ami-c06b24a0"
+      },
+      "us-west-2": {
+        "PV64": "ami-c06b24a0",
+        "HVM64": "ami-c06b24a0"
+      },
+      "us-west-1": {
+        "PV64": "ami-c06b24a0",
+        "HVM64": "ami-c06b24a0"
       }
     }
   }
