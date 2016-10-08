@@ -17,6 +17,12 @@ if node[:platform].include?("ubuntu")
     package "Install libicu55" do
       package_name 'libicu55'
     end
+    package "Install python-minimal" do
+      #if python2 is not installed python isn't always
+      #aliased to python3. This ensures a version of python is available
+      #without any custom mappings.
+      package_name 'python-minimal'
+    end
     remote_file "/var/tmp/omi-1.1.0.ssl_100.x64.deb" do
       #source "#{node[:mye_deb_source_url]}"
       source 'https://github.com/Microsoft/omi/releases/download/v1.1.0-0/omi-1.1.0.ssl_100.x64.deb'
