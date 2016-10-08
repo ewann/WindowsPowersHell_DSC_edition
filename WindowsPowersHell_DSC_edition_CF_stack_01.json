@@ -265,8 +265,8 @@
                 "choco install git -force -y\n",
                 "pushd c:\\\n",
                 "start-process -FilePath 'C:\\Program Files\\Git\\bin\\git.exe' -ArgumentList 'clone https://github.com/ewann/WindowsPowersHell_DSC_edition.git/'\n",
-                "Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force\n",
-                "install-module nx -Force\n",
+                "Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ForceBootStrap -scope AllUsers\n",
+                "install-module nx -Force -scope AllUsers\n",
                 "shutdown -r -t 5\n",
                 "</powershell>\n"
               ]
@@ -335,7 +335,10 @@
                 "curl -L https://omnitruck.chef.io/install.sh | sudo bash\n",
                 "git clone 'https://github.com/ewann/WindowsPowersHell_DSC_edition.git/'\n",
                 "cd WindowsPowersHell_DSC_edition\n",
-                "chef-client -z -o powershell\n"
+                "chef-client -z -o powershell\n",
+                "apt-get update\n",
+                "apt-get upgrade -y\n",
+                "reboot\n"
               ]
             ]
           }
