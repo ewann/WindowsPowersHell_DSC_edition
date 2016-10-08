@@ -13,10 +13,11 @@
         },
         "z": 0,
         "embeds": [
+          "c74462ca-68ee-4242-9726-850340db99af",
+          "e08f67ab-8264-4e16-b6e1-2b0ace97e9d0",
           "325e918d-8537-4bbc-9f41-ab05ac329976",
           "91485a7f-3260-4542-810f-fb7e4fbbd4df",
-          "ca139033-3ad4-4030-ae09-cf36ade1ed48",
-          "e08f67ab-8264-4e16-b6e1-2b0ace97e9d0"
+          "ca139033-3ad4-4030-ae09-cf36ade1ed48"
         ]
       },
       "91485a7f-3260-4542-810f-fb7e4fbbd4df": {
@@ -61,7 +62,7 @@
         },
         "position": {
           "x": 90,
-          "y": 310
+          "y": 300
         },
         "z": 2,
         "parent": "91485a7f-3260-4542-810f-fb7e4fbbd4df",
@@ -70,7 +71,9 @@
           "d960858e-9388-41f5-aac2-bd4ede8fb5fd"
         ],
         "isrelatedto": [
-          "325e918d-8537-4bbc-9f41-ab05ac329976"
+          "325e918d-8537-4bbc-9f41-ab05ac329976",
+          "e08f67ab-8264-4e16-b6e1-2b0ace97e9d0",
+          "c74462ca-68ee-4242-9726-850340db99af"
         ]
       },
       "325e918d-8537-4bbc-9f41-ab05ac329976": {
@@ -193,10 +196,24 @@
         },
         "position": {
           "x": 230,
-          "y": 310
+          "y": 270
         },
         "z": 1,
-        "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a"
+        "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
+        "embeds": []
+      },
+      "c74462ca-68ee-4242-9726-850340db99af": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 230,
+          "y": 350
+        },
+        "z": 1,
+        "parent": "2522e5f5-149f-45bb-aedc-8a6d3a3e323a",
+        "embeds": []
       }
     }
   },
@@ -236,16 +253,26 @@
     "InstanceWindows01": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
-        "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
-           "<powershell>\n",
-           "Set-ExecutionPolicy unrestricted -force\n",
-           "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))\n",
-           "choco install powershell -force -y\n",
-           "Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force\n",
-           "install-module nx -Force\n",
-           "shutdown -r -t 5\n",
-           "</powershell>\n"
-           ]]}},
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": [
+              "",
+              [
+                "<powershell>\n",
+                "Set-ExecutionPolicy unrestricted -force\n",
+                "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))\n",
+                "choco install powershell -force -y\n",
+                "choco install git -force -y\n",
+                "pushd c:\\\n",
+                "start-process -FilePath 'C:\\Program Files\\Git\\bin\\git.exe' -ArgumentList 'clone https://github.com/ewann/WindowsPowersHell_DSC_edition.git/'\n",
+                "Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force\n",
+                "install-module nx -Force\n",
+                "shutdown -r -t 5\n",
+                "</powershell>\n"
+              ]
+            ]
+          }
+        },
         "InstanceType": {
           "Ref": "InstanceType"
         },
@@ -273,9 +300,15 @@
           {
             "AssociatePublicIpAddress": "True",
             "DeleteOnTermination": "True",
-            "SubnetId": { "Ref": "SubnetWPHinternetFacing01" },
+            "SubnetId": {
+              "Ref": "SubnetWPHinternetFacing01"
+            },
             "DeviceIndex": "0",
-            "GroupSet": [ { "Ref": "SecurityGroupAllowRDPinbound" } ]
+            "GroupSet": [
+              {
+                "Ref": "SecurityGroupAllowRDPinbound"
+              }
+            ]
           }
         ]
       },
@@ -291,13 +324,22 @@
     "InstanceLinux01": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
-        "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
-           "#!/bin/bash\n",
-           "curl -L https://omnitruck.chef.io/install.sh | sudo bash\n",
-           "git clone 'https://github.com/ewann/WindowsPowersHell_DSC_edition.git/'\n",
-           "cd WindowsPowersHell_DSC_edition\n",
-           "chef-client -z -o powershell\n"
-           ]]}},
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": [
+              "",
+              [
+                "#!/bin/bash\n",
+                "apt-get update\n",
+                "apt-get upgrade -y\n",
+                "curl -L https://omnitruck.chef.io/install.sh | sudo bash\n",
+                "git clone 'https://github.com/ewann/WindowsPowersHell_DSC_edition.git/'\n",
+                "cd WindowsPowersHell_DSC_edition\n",
+                "chef-client -z -o powershell\n"
+              ]
+            ]
+          }
+        },
         "InstanceType": {
           "Ref": "InstanceType"
         },
@@ -325,9 +367,18 @@
           {
             "AssociatePublicIpAddress": "True",
             "DeleteOnTermination": "True",
-            "SubnetId": { "Ref": "SubnetWPHinternetFacing01" },
+            "SubnetId": {
+              "Ref": "SubnetWPHinternetFacing01"
+            },
             "DeviceIndex": "0",
-            "GroupSet": [ { "Ref": "SecurityGroupAllowSSHinbound" } ]
+            "GroupSet": [
+              {
+                "Ref": "SecurityGroupAllowSSHinbound"
+              },
+              {
+                "Ref": "SecurityGroupWinRMinbound"
+              }
+            ]
           }
         ]
       },
@@ -422,7 +473,7 @@
             "FromPort": "3389",
             "ToPort": "3389",
             "CidrIp": {
-              "Ref": "RDPLocation"
+              "Ref": "ClientDeviceLocation"
             }
           }
         ]
@@ -446,7 +497,7 @@
             "FromPort": "22",
             "ToPort": "22",
             "CidrIp": {
-              "Ref": "RDPLocation"
+              "Ref": "ClientDeviceLocation"
             }
           }
         ]
@@ -454,6 +505,28 @@
       "Metadata": {
         "AWS::CloudFormation::Designer": {
           "id": "e08f67ab-8264-4e16-b6e1-2b0ace97e9d0"
+        }
+      }
+    },
+    "SecurityGroupWinRMinbound": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPCWindowsPowersHell01"
+        },
+        "GroupDescription": "Allow access from WinRM traffic",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "5986",
+            "ToPort": "5986",
+            "CidrIp": "10.0.0.0/16"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "c74462ca-68ee-4242-9726-850340db99af"
         }
       }
     }
@@ -466,15 +539,15 @@
         "t2.micro",
         "m1.small"
       ],
-      "Description": "Enter t2.micro, or m1.small. Default is t2.micro."
+      "Description": "TESTED in us-west-1 ONLY. Enter t2.micro, or m1.small. Default is t2.micro."
     },
     "KeyName": {
       "Description": "Name of an EC2 KeyPair to enable SSH access to the instance.",
       "Type": "AWS::EC2::KeyPair::KeyName",
       "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
     },
-    "RDPLocation": {
-      "Description": " The IP address range that can be usedto access the Windows server using RDP.",
+    "ClientDeviceLocation": {
+      "Description": " The IP address range that can be used to access servers using SSH or RDP.",
       "Type": "String",
       "MinLength": "9",
       "MaxLength": "18",
