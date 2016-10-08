@@ -426,8 +426,8 @@
         "SecurityGroupIngress": [
           {
             "IpProtocol": "tcp",
-            "FromPort": "3389",
-            "ToPort": "3389",
+            "FromPort": "22",
+            "ToPort": "22",
             "CidrIp": {
               "Ref": "RDPLocation"
             }
