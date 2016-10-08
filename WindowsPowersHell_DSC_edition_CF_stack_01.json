@@ -241,6 +241,8 @@
            "Set-ExecutionPolicy unrestricted -force\n",
            "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))\n",
            "choco install powershell -force -y\n",
+           "Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force\n",
+           "install-module nx -Force\n",
            "shutdown -r -t 5\n",
            "</powershell>\n"
            ]]}},
