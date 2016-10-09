@@ -34,6 +34,8 @@ Provides a demo environment for Powershell Desired State Configuration managemen
 ## Install instructions:
 * Launch ```WindowsPowersHell_DSC_edition_CF_stack_01.json``` using
 AWS CloudFormation in the ```us-west-1``` region.
+* root password of Ubuntu instance will need changing with chpasswd before invoking New-CIMSession
+* nuget/nx module install via userdata currently failing
 * TBC
 
 ## License:
