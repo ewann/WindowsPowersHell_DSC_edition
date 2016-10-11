@@ -10,12 +10,9 @@ workflow test-restart
  Restart-Computer -Wait
 
  InlineScript {Get-Date | Out-File -FilePath C:\WindowsPowersHell_DSC_edition\Powershell\afterResume.txt}
-
- Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ForceBootStrap -scope AllUsers
- #https://technet.microsoft.com/en-us/library/mt676543.aspx step 4 reminds us: 'Restart PowerShell...Alternatively:'\n",
- Import-PackageProvider -Name NuGet
- install-module nx -Force -scope AllUsers
-
+ #Cant do:
+ #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ForceBootStrap -scope AllUsers
+ #here, because at this stage Install-PackageProvider still isn't installed / recognized. See Resume-WFJob.ps1
 }
 
 $job = test-restart -asjob

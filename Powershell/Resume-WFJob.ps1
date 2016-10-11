@@ -6,3 +6,8 @@ $jobs = Get-Job -state Suspended
 $resumedJobs = $jobs | resume-job -wait
 
 $resumedJobs | wait-job
+
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ForceBootStrap -scope AllUsers
+#https://technet.microsoft.com/en-us/library/mt676543.aspx step 4 reminds us: 'Restart PowerShell...Alternatively:'\n",
+Import-PackageProvider -Name NuGet
+install-module nx -Force -scope AllUsers
