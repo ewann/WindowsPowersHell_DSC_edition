@@ -7,7 +7,7 @@ Get-ScheduledTask -TaskName ResumeWFJobTask -EA SilentlyContinue | Unregister-Sc
 
 $act = New-ScheduledTaskAction -Execute "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Argument $resumeActionscript
 
-$trig = New-ScheduledTaskTrigger -AtStartUp -RandomDelay 00:01:30
+$trig = New-ScheduledTaskTrigger -AtLogon -RandomDelay 00:01:30
 
 Register-ScheduledTask -TaskName ResumeWFJobTask -Action $act -Trigger $trig -RunLevel Highest
 
