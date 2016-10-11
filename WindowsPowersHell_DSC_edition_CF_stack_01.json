@@ -264,7 +264,9 @@
                 "choco install powershell -y;\n",
                 "choco install git -y\n",
                 "pushd c:\\\n",
-                "start-process -FilePath 'C:\\Program Files\\Git\\bin\\git.exe' -ArgumentList 'clone https://github.com/ewann/WindowsPowersHell_DSC_edition.git/'\n",
+                "start-process -FilePath 'C:\\Program Files\\Git\\bin\\git.exe' -ArgumentList 'clone https://github.com/ewann/WindowsPowersHell_DSC_edition.git/' -wait\n",
+                "iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Schedule-WFJob.ps1\n",
+                "iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Invoke-WFJob.ps1\n",
                 "</powershell>\n"
               ]
             ]
