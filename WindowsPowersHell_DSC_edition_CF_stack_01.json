@@ -263,10 +263,12 @@
                 "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))\n",
                 "choco install powershell -y;\n",
                 "choco install git -y\n",
+                "#this one is seems to be a performance trainwreck: choco install openssh -y\n",
+                "choco install mls-software-openssh -y\n",
                 "pushd c:\\\n",
                 "start-process -FilePath 'C:\\Program Files\\Git\\bin\\git.exe' -ArgumentList 'clone https://github.com/ewann/WindowsPowersHell_DSC_edition.git/' -wait\n",
                 "iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Schedule-WFJob.ps1\n",
-                "iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Invoke-WFJob.ps1\n",
+                "shutdown -r -t 5 -f #iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Invoke-WFJob.ps1\n",
                 "</powershell>\n"
               ]
             ]
@@ -337,7 +339,7 @@
                 "chef-client -z -o powershell\n",
                 "apt-get update\n",
                 "apt-get upgrade -y\n",
-                "chpasswd\nroot:root\n",
+                "echo 'root:root' | chpasswd\n",
                 "reboot\n"
               ]
             ]
