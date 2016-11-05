@@ -7,7 +7,7 @@ workflow test-restart
 
  InlineScript {Get-Date | Out-File -FilePath C:\WindowsPowersHell_DSC_edition\Powershell\beforeSuspend.txt}
  # Suspend using Restart-Computer activity or Suspend activity
- Restart-Computer -Wait
+ Restart-Computer #-Wait -Timeout 15
 
  InlineScript {Get-Date | Out-File -FilePath C:\WindowsPowersHell_DSC_edition\Powershell\afterResume.txt}
  #Cant do:

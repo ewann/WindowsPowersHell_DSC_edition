@@ -11,3 +11,5 @@ Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ForceBootS
 #https://technet.microsoft.com/en-us/library/mt676543.aspx step 4 reminds us: 'Restart PowerShell...Alternatively:'\n",
 Import-PackageProvider -Name NuGet
 install-module nx -Force -scope AllUsers
+write-host "Post reboot software installation has completed. Press {Enter} to close this window and complete next steps."
+pause
