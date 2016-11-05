@@ -349,20 +349,38 @@
           "Ref": "InstanceType"
         },
         "ImageId": {
-          "Fn::FindInMap": [
-            "AWSRegionArch2AMI",
-            {
-              "Ref": "AWS::Region"
-            },
-            {
-              "Fn::FindInMap": [
-                "AWSInstanceType2Arch",
-                {
-                  "Ref": "InstanceType"
-                },
-                "Arch"
-              ]
-            }
+          "Fn::If": [
+              "UbuntuReleaseCondition1604",
+              { "Fn::FindInMap": [
+                    "AWSRegionArch2AMIubuntu1604",
+                    {
+                        "Ref": "AWS::Region"
+                    },
+                    {
+                        "Fn::FindInMap": [
+                            "AWSInstanceType2Arch",
+                            {
+                                "Ref": "InstanceType"
+                            },
+                            "Arch"
+                        ]
+                    },
+               ]},
+              { "Fn::FindInMap": [
+                    "AWSRegionArch2AMIubuntu1604",
+                    {
+                        "Ref": "AWS::Region"
+                    },
+                    {
+                        "Fn::FindInMap": [
+                            "AWSInstanceType2Arch",
+                            {
+                                "Ref": "InstanceType"
+                            },
+                            "Arch"
+                        ]
+                    },
+               ]}
           ]
         },
         "KeyName": {
@@ -559,6 +577,29 @@
       "Default": "0.0.0.0/0",
       "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
       "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+    },
+    "UbuntuRelease": {
+      "Description": "The Ubuntu LTS release desired",
+      "Type": "String",
+      "Default": "16.04",
+      "AllowedValues": [
+        "14.04",
+        "16.04"
+      ]
+    }
+  },
+  "Conditions": {
+    "UbuntuReleaseCondition1604" : {
+      "Fn::Equals": [
+        {"Ref": "UbuntuRelease"},
+          "16.04"
+      ]
+    },
+    "UbuntuReleaseCondition1404" : {
+      "Fn::Equals": [
+        {"Ref": "UbuntuRelease"},
+          "16.04"
+      ]
     }
   },
   "Mappings": {
@@ -573,7 +614,7 @@
         "Arch": "HVM64"
       }
     },
-    "AWSRegionArch2AMI": {
+    "AWSRegionArch2AMIubuntu1604": {
       "us-east-1": {
         "PV64": "ami-a9a8e4c9",
         "HVM64": "ami-a9a8e4c9"
