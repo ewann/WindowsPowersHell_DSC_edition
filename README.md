@@ -1,5 +1,5 @@
 # WindowsPowersHell_DSC_edition
-Provides a demo environment for Powershell Desired State Configuration management of Ubuntu 16.04
+Provides a demo environment for Powershell Desired State Configuration management of Ubuntu LTS releases
 
 ## Pre-requisites:
 * Knowledge of PowerShell & PowerShell DSC, or the ability to quickly come up to speed:
@@ -32,7 +32,7 @@ Provides a demo environment for Powershell Desired State Configuration managemen
 * Very basic Git knowledge, or the ability to quickly come up to speed
 
 
-* There are currently hard coded AMI ID's in ```WindowsPowersHell_DSC_edition_CF_stack_01.json``` for Ubuntu 16.04 & Windows Server 2012R2. If those AMI's are retired it will be necessary to know how to update / replace them
+* There are currently hard coded AMI ID's in ```WindowsPowersHell_DSC_edition_CF_stack_01.json``` for Ubuntu 16.04, 14.04 & Windows Server 2012R2. If those AMI's are retired it will be necessary to know how to update / replace them
 
 
 ## Install / Usage instructions:
@@ -63,7 +63,8 @@ Provides a demo environment for Powershell Desired State Configuration managemen
 * For the option ```Choose a template``` click the ```Browse``` button and choose the ```WindowsPowersHell_DSC_edition_CF_stack_01.json```  from the location we cloned the repo into
 * Click ```Next```
 * Specify a ```Stack name``` What you choose doesn't really matter, but it has to be unique in your AWS account/region
-*  Chose an option from the drop down list next to ```Key Name``` - possibly the {private-key-file} you created in a previous step
+*  Choose an option from the drop down list next to ```Key Name``` - possibly the {private-key-file} you created in a previous step
+*  Choose ```16.04``` from ```UbuntuRelease``` - choosing any other option is currently experimental
 *  Click ```Next```
 *  Options: Specify a ```Key Name``` of ```purpose``` and a ```Value``` of ```LinuxDSCtest``` to help us find the created servers later on. Scroll to the bottom right and click ```Next```
 *  Review: On this page there is nothing we need to select / change. Scroll to the bottom right and click ```Next```
