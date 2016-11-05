@@ -367,7 +367,7 @@
                     },
                ]},
               { "Fn::FindInMap": [
-                    "AWSRegionArch2AMIubuntu1604",
+                    "AWSRegionArch2AMIubuntu1404",
                     {
                         "Ref": "AWS::Region"
                     },
@@ -626,6 +626,12 @@
       "us-west-1": {
         "PV64": "ami-a9a8e4c9",
         "HVM64": "ami-a9a8e4c9"
+      }
+    },
+    "AWSRegionArch2AMIubuntu1404": {
+      "us-west-1": {
+        "PV64": "ami-292e6a49",
+        "HVM64": "ami-11286c71"
       }
     },
     "AWSRegionArch2AMIwindows": {
