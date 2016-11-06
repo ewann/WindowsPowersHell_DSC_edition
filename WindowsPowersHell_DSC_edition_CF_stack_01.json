@@ -603,12 +603,6 @@
         {"Ref": "UbuntuRelease"},
           "16.04"
       ]
-    },
-    "UbuntuReleaseCondition1404" : {
-      "Fn::Equals": [
-        {"Ref": "UbuntuRelease"},
-          "16.04"
-      ]
     }
   },
   "Mappings": {
