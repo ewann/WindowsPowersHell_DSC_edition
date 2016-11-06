@@ -39,7 +39,7 @@ Provides a demo environment for Powershell Desired State Configuration managemen
 
 ### Client Setup
 * Get access to an AWS account. If you don't already have access, visit https://aws.amazon.com/free to open an account with a free tier access to AWS
-* Ensure you have Git installed on your client machine. One of 
+* Ensure you have Git installed on your client machine. One of: 
 	* ```install-package git```
 	* ``` choco install git```
 	* https://git-scm.com/downloads

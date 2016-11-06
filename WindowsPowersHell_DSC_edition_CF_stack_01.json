@@ -256,20 +256,21 @@
         "UserData": {
           "Fn::Base64": {
             "Fn::Join": [
-              "",
+              "\n",
               [
-                "<powershell>\n",
-                "Set-ExecutionPolicy unrestricted -force\n",
-                "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))\n",
-                "choco install powershell -y;\n",
-                "choco install git -y\n",
-                "#this one is seems to be a performance trainwreck: choco install openssh -y\n",
-                "choco install mls-software-openssh -y\n",
-                "pushd c:\\\n",
-                "start-process -FilePath 'C:\\Program Files\\Git\\bin\\git.exe' -ArgumentList 'clone https://github.com/ewann/WindowsPowersHell_DSC_edition.git/' -wait\n",
-                "iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Schedule-WFJob.ps1\n",
-                "shutdown -r -t 5 -f #iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Invoke-WFJob.ps1\n",
-                "</powershell>\n"
+                "<powershell>",
+                "Set-ExecutionPolicy unrestricted -force",
+                "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))",
+                "choco install powershell -y;",
+                "choco install git -y",
+                "#this one is seems to be a performance trainwreck: choco install openssh -y",
+                "choco install mls-software-openssh -y",
+                "pushd c:\\",
+                "start-process -FilePath 'C:\\Program Files\\Git\\bin\\git.exe' -ArgumentList 'clone https://github.com/ewann/WindowsPowersHell_DSC_edition.git/' -wait",
+                { "Fn::Sub": "git checkout ${RepoBranchSource}" },
+                "iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Schedule-WFJob.ps1",
+                "shutdown -r -t 5 -f #iex c:\\WindowsPowersHell_DSC_edition\\Powershell\\Invoke-WFJob.ps1",
+                "</powershell>"
               ]
             ]
           }
@@ -328,19 +329,21 @@
         "UserData": {
           "Fn::Base64": {
             "Fn::Join": [
-              "",
+              "\n",
               [
-                "#!/bin/bash\n",
-                "apt-get update\n",
-                "apt-get upgrade -y\n",
-                "curl -L https://omnitruck.chef.io/install.sh | sudo bash\n",
-                "git clone 'https://github.com/ewann/WindowsPowersHell_DSC_edition.git/'\n",
-                "cd WindowsPowersHell_DSC_edition\n",
-                "chef-client -z -o powershell\n",
-                "apt-get update\n",
-                "apt-get upgrade -y\n",
-                "echo 'root:root' | chpasswd\n",
-                "reboot\n"
+                "#!/bin/bash",
+                "apt-get update",
+                "apt-get upgrade -y",
+                "apt-get install git -y",
+                "curl -L https://omnitruck.chef.io/install.sh | sudo bash",
+                "git clone 'https://github.com/ewann/WindowsPowersHell_DSC_edition.git/'",
+                "cd WindowsPowersHell_DSC_edition",
+                { "Fn::Sub": "git checkout ${RepoBranchSource}" },
+                "chef-client -z -o powershell",
+                "apt-get update",
+                "apt-get upgrade -y",
+                "echo 'root:root' | chpasswd",
+                "reboot"
               ]
             ]
           }
