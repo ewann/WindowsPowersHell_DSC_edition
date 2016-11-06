@@ -9,11 +9,11 @@ when "ubuntu"
     case node[:platform_version]
     #common prereqs
     when "14.04","16.04"
-        apt_repository "dotnet-release-trusty" do
+        apt_repository "dotnet-release" do
             uri "https://apt-mo.trafficmanager.net/repos/dotnet-release"
             distribution node['lsb']['codename']
             components ["main"]
-            keyserver "apt-mo.trafficmanager.net"
+            keyserver "keyserver.ubuntu.com"
             key "417A0893"
             notifies :run, resources(:execute => "apt-get-update"), :immediately
         end

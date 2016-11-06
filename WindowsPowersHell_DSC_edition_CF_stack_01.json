@@ -340,6 +340,7 @@
                 "cd WindowsPowersHell_DSC_edition",
                 { "Fn::Sub": "git checkout ${RepoBranchSource}" },
                 "chef-client -z -o powershell",
+                "chef-client -z -o dotNETcore",
                 "apt-get update",
                 "apt-get upgrade -y",
                 "echo 'root:root' | chpasswd",
