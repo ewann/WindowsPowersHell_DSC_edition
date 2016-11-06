@@ -15,7 +15,7 @@ when "ubuntu"
             components ["main"]
             keyserver "keyserver.ubuntu.com"
             key "417A0893"
-            notifies :run, resources(:execute => "apt-get-update"), :immediately
+            notifies :run, 'execute[apt-get-update]', :immediately
         end
         execute "apt-get-update" do
             command "apt-get update"
