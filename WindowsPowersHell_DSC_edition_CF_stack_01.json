@@ -364,8 +364,8 @@
                             },
                             "Arch"
                         ]
-                    },
-               ]},
+                    }
+              ]},
               { "Fn::FindInMap": [
                     "AWSRegionArch2AMIubuntu1404",
                     {
@@ -379,7 +379,7 @@
                             },
                             "Arch"
                         ]
-                    },
+                    }
                ]}
           ]
         },
