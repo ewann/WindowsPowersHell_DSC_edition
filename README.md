@@ -64,7 +64,8 @@ Provides a demo environment for Powershell Desired State Configuration managemen
 * Click ```Next```
 * Specify a ```Stack name``` What you choose doesn't really matter, but it has to be unique in your AWS account/region
 *  Choose an option from the drop down list next to ```Key Name``` - possibly the {private-key-file} you created in a previous step
-*  Choose ```16.04``` from ```UbuntuRelease``` - choosing any other option is currently experimental
+*  Choose a ```RepoBranchName``` - more testing has generally been performed on ```master``` Newer functionality will generally be in ```next```
+*  Choose your desired LTS release from ```UbuntuRelease``` - if you experience an issue in one, try again with the other
 *  Click ```Next```
 *  Options: Specify a ```Key Name``` of ```purpose``` and a ```Value``` of ```LinuxDSCtest``` to help us find the created servers later on. Scroll to the bottom right and click ```Next```
 *  Review: On this page there is nothing we need to select / change. Scroll to the bottom right and click ```Next```
