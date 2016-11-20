@@ -566,7 +566,7 @@
         "t2.micro",
         "m1.small"
       ],
-      "Description": "TESTED in us-west-1 ONLY. Enter t2.micro, or m1.small. Default is t2.micro."
+      "Description": "TESTED in us-west-1 (California) ONLY. Enter t2.micro, or m1.small. Default is t2.micro."
     },
     "KeyName": {
       "Description": "Name of an EC2 KeyPair to enable SSH access to the instance.",
