@@ -217,6 +217,7 @@
       }
     }
   },
+  "Description" : "Demo environment for: https://github.com/ewann/WindowsPowersHell_DSC_edition",
   "Resources": {
     "EC2VPCG3I1JK": {
       "Type": "AWS::EC2::VPCGatewayAttachment",
