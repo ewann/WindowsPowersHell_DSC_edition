@@ -14,6 +14,7 @@ pause
 
 write-host "Creating the file /tmp/example on the Linux server using PowerShell DSC..."
 pushd c:\windowspowershell_dsc_edition\dsc
+git checkout next
 
 
 write-host "Creating the DSC Mof file..."
